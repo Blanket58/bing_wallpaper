@@ -4,13 +4,13 @@ set N=0
 :str
 set /a n=%n%+1
 
-reg add "hkcu\control panel\desktop" /v Wallpaper /d "C:\Users\Administrator.20181116-143426\Desktop\Rscripts\AutoWallPaper\1.jpg" /f
+reg add "hkcu\control panel\desktop" /v Wallpaper /d "D:\AutoWallPaper\1.jpg" /f
 
 reg add "hkcu\control panel\desktop" /v WallpaperStyle /t REG_DWORD /d 0 /f
 
 RunDll32.exe USER32.DLL,UpdatePerUserSystemParameters
 
-echo.ÒÑÖ´ĞĞ%N%´Î¡­¡­
+echo.Ã’Ã‘Ã–Â´ÃÃ%N%Â´ÃÂ¡Â­Â¡Â­
 if "%n%"=="%Num%" goto end
 goto str
 
