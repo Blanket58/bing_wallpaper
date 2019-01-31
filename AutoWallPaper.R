@@ -1,5 +1,9 @@
 rm(list=ls())
 setwd("D:/AutoWallPaper/Pictures")
+packages<-.packages(all.available=T)
+if(!("RCurl" %in% packages)){install.packages(RCurl)}else{break}
+if(!("XML" %in% packages)){install.packages(XML)}else{break}
+if(!("stringr" %in% packages)){install.packages(stringr)}else{break}
 library(RCurl)
 library(XML)
 library(stringr)
