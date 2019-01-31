@@ -1,5 +1,5 @@
 rm(list=ls())
-setwd("C:/Users/Administrator.20181116-143426/Desktop/Rscripts/AutoWallPaper/Pictures")
+setwd("D:/AutoWallPaper/Pictures")
 library(RCurl)
 library(XML)
 library(stringr)
@@ -23,5 +23,5 @@ size<-"1920x1200.jpg"
 final.link<-paste(paste(part.link,collapse = "_"),size,sep = "_")
 jpgfile<-getBinaryURL(final.link)
 writeBin(jpgfile,paste0(tag.name,".jpg"))
-setwd("C:/Users/Administrator.20181116-143426/Desktop/Rscripts/AutoWallPaper")
+setwd("D:/AutoWallPaper")
 writeBin(jpgfile,"1.jpg")
