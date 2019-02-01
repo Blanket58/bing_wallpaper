@@ -1,5 +1,5 @@
 rm(list=ls())
-setwd("D:/bing_autowallpaper/bing_autowallpaper/Pictures")
+setwd("D:/bing_autowallpaper/bing_autowallpaper/pictures")
 packages<-.packages(all.available=T)
 if(!("RCurl" %in% packages)){install.packages(RCurl)}
 if(!("XML" %in% packages)){install.packages(XML)}
