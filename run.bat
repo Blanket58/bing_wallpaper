@@ -5,6 +5,7 @@ FOR /F "delims=:,tokens=1" %%i in (D:\bing_autowallpaper-master\bing_autowallpap
 cd %APath%\bin
 Rscript D:\bing_autowallpaper-master\bing_autowallpaper-master\bin\AutoWallPaper.R
 echo Now Run the fetchname
+D:
 cd D:\bing_autowallpaper-master\bing_autowallpaper-master\pictures
 DIR *.* /B >D:\bing_autowallpaper-master\bing_autowallpaper-master\configs\list.txt
 echo Now run the ChangeWallPaper
