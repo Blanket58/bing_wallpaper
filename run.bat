@@ -9,13 +9,13 @@ D:
 cd D:\bing_autowallpaper-master\bing_autowallpaper-master\pictures
 DIR *.* /B >D:\bing_autowallpaper-master\bing_autowallpaper-master\configs\list.txt
 echo Now run the ChangeWallPaper
-set Num=20
-set N=0
+set num=20
+set n=0
 :str
 set /a n=%n%+1
 reg add "hkcu\control panel\desktop" /v Wallpaper /d "D:\bing_autowallpaper-master\bing_autowallpaper-master\cache\1.jpg" /f
 reg add "hkcu\control panel\desktop" /v WallpaperStyle /t REG_DWORD /d 0 /f
 RunDll32.exe USER32.DLL,UpdatePerUserSystemParameters
-if "%n%"=="%Num%" goto end
+if "%n%"=="%num%" goto end
 goto str
 exit
