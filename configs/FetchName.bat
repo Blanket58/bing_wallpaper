@@ -1,2 +1,2 @@
-cd C:\Users\Blanket\Desktop\Rscripts\AutoWallPaper\Pictures
-DIR *.* /B >C:\Users\Blanket\Desktop\Rscripts\AutoWallPaper\cache\list.txt
+cd D:\bing_autowallpaper\bing_autowallpaper\Pictures
+DIR *.* /B >D:\bing_autowallpaper\bing_autowallpaper\cache\list.txt
