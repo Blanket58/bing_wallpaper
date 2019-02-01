@@ -10,7 +10,7 @@ reg add "hkcu\control panel\desktop" /v WallpaperStyle /t REG_DWORD /d 0 /f
 
 RunDll32.exe USER32.DLL,UpdatePerUserSystemParameters
 
-echo.ÒÑÖ´ÐÐ%N%´Î¡­¡­
+echo.已执行%N%次……
 if "%n%"=="%num%" goto end
 goto str
 
