@@ -7,7 +7,7 @@ Using API provided by xCss , https://github.com/xCss/bing
 
 3.只适用于Windows系统；
 
-4.测试R版本3.5.2，Windows x64；
+4.测试R版本3.5.2；
 
 5.将压缩包解压至D盘根目录，不要对文件夹命名做任何更改，运行run.bat;
 
