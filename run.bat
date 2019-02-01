@@ -1,14 +1,16 @@
-cd C:\Program Files\R\R-3.5.2\bin
-Rscript D:\bing_autowallpaper\bing_autowallpaper\AutoWallPaper.R
+SET SF="HKEY_LOCAL_MACHINE\SOFTWARE\R-core\R"
+FOR /F "tokens=2,*" %%I IN ('REG QUERY %SF% /v InstallPath 2^>NUL^|FIND /I "InstallPath"') DO SET "APath=%%~J"
+cd %APath%\bin
+Rscript C:\Users\Blanket\Desktop\Rscripts\AutoWallPaper\bin\AutoWallPaper.R
 echo Now Run the fetchname
-cd D:\bing_autowallpaper\bing_autowallpaper\Pictures
-DIR *.* /B >D:\bing_autowallpaper\bing_autowallpaper\list.txt
+cd C:\Users\Blanket\Desktop\Rscripts\AutoWallPaper\Pictures
+DIR *.* /B >C:\Users\Blanket\Desktop\Rscripts\AutoWallPaper\configs\list.txt
 echo Now run the ChangeWallPaper
-set Num=50
+set Num=20
 set N=0
 :str
 set /a n=%n%+1
-reg add "hkcu\control panel\desktop" /v Wallpaper /d "D:\bing_autowallpaper\bing_autowallpaper\1.jpg" /f
+reg add "hkcu\control panel\desktop" /v Wallpaper /d "C:\Users\Blanket\Desktop\Rscripts\AutoWallPaper\cache\1.jpg" /f
 reg add "hkcu\control panel\desktop" /v WallpaperStyle /t REG_DWORD /d 0 /f
 RunDll32.exe USER32.DLL,UpdatePerUserSystemParameters
 if "%n%"=="%Num%" goto end
