@@ -1,5 +1,5 @@
 rm(list=ls())
-setwd("D:/bing_autowallpaper/bing_autowallpaper/pictures")
+setwd("D:/bing_autowallpaper-master/bing_autowallpaper-master/pictures")
 packages<-.packages(all.available=T)
 if(!("RCurl" %in% packages)){install.packages(RCurl)}
 if(!("XML" %in% packages)){install.packages(XML)}
@@ -27,5 +27,5 @@ size<-"1920x1200.jpg"
 final.link<-paste(paste(part.link,collapse = "_"),size,sep = "_")
 jpgfile<-getBinaryURL(final.link)
 writeBin(jpgfile,paste0(tag.name,".jpg"))
-setwd("D:/bing_autowallpaper/bing_autowallpaper/cache")
+setwd("D:/bing_autowallpaper-master/bing_autowallpaper-master/cache")
 writeBin(jpgfile,"1.jpg")
