@@ -3,7 +3,7 @@ FOR /F "tokens=2,*" %%I IN ('REG QUERY %SF% /v InstallPath 2^>NUL^|FIND /I "Inst
 cd %APath%\bin
 Rscript D:\bing_autowallpaper\bing_autowallpaper\bin\AutoWallPaper.R
 echo Now Run the fetchname
-cd D:\bing_autowallpaper\bing_autowallpaper\Pictures
+cd D:\bing_autowallpaper\bing_autowallpaper\pictures
 DIR *.* /B >D:\bing_autowallpaper\bing_autowallpaper\configs\list.txt
 echo Now run the ChangeWallPaper
 set Num=20
