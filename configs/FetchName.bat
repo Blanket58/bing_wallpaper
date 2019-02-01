@@ -1,2 +1,2 @@
-cd D:\bing_autowallpaper\bing_autowallpaper\pictures
-DIR *.* /B >D:\bing_autowallpaper\bing_autowallpaper\cache\list.txt
+cd D:\bing_autowallpaper-master\bing_autowallpaper-master\pictures
+DIR *.* /B >D:\bing_autowallpaper-master\bing_autowallpaper-master\cache\list.txt
