@@ -7,4 +7,6 @@ Using API provided by xCss , https://github.com/xCss/bing
 
 3.只适用于Windows系统；
 
-4.WinXP即时响应，Win7、10 经测试有很大可能不能即时响应，可以多运行几遍文件ChangeWallPaper.bat或重启计算机即可。
+4.WinXP即时响应，Win7、10 经测试有很大可能不能即时响应，可以多运行几遍文件ChangeWallPaper.bat或重启计算机即可,此问题在后续版本中会做更新；
+
+5.将压缩包解压至D盘根目录，运行run.bat。
