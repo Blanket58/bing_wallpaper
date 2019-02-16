@@ -1,6 +1,20 @@
 # bing_autowallpaper
 Using API provided by xCss , https://github.com/xCss/bing
 
+
+更新：
+
+V 1.1
+
+1.解决之前提到的有概率不能即时响应问题，现在可以做到即时响应；
+
+2.解决有一定概率抓到相同两张图片的问题，保证壁纸从不重复。
+
+
+
+
+V 1.0
+
 1.在作者xCss工程的启发下完成桌面自动壁纸的开发；
 
 2.随机从xCss提供的Bing每日壁纸数据库中抓取一张图片作为桌面壁纸；
