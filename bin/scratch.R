@@ -33,3 +33,7 @@ jpgfile<-getBinaryURL(final.link)
 writeBin(jpgfile,paste0(tag.name,".jpg"))
 setwd("D:/bing_autowallpaper-master/bing_autowallpaper-master/cache")
 writeBin(jpgfile,"1.jpg")
+#preparations for python
+modules<-readLines("../configs/modules.txt") %>% str_split(" +")
+modules<-sapply(modules[-c(1,2)],function(x) x[1])
+if(!("pywin32" %in% modules)) system("pip install pywin32")
