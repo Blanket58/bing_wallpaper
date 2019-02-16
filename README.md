@@ -10,10 +10,8 @@ Using API provided by xCss , https://github.com/xCss/bing
 
 2.解决有一定概率抓到相同两张图片的问题，保证壁纸从不重复。
 
-  
-  
-  
- 
+<br></br>
+
 <h3>V 1.0</h3>
 
 1.在作者xCss工程的启发下完成桌面自动壁纸的开发；
