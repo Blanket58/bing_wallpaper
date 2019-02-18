@@ -4,7 +4,7 @@ import win32con
 def setwallpaper(pic):
   # open register
   regkey = win32api.RegOpenKeyEx(win32con.HKEY_CURRENT_USER,"Control Panel\\Desktop",0,win32con.KEY_SET_VALUE)
-  win32api.RegSetValueEx(regkey,"WallpaperStyle", 0, win32con.REG_SZ, "2")
+  win32api.RegSetValueEx(regkey,"WallpaperStyle", 0, win32con.REG_SZ, "0")
   win32api.RegSetValueEx(regkey, "TileWallpaper", 0, win32con.REG_SZ, "0")
   # refresh screen
   win32gui.SystemParametersInfo(win32con.SPI_SETDESKWALLPAPER,pic, win32con.SPIF_SENDWININICHANGE)
