@@ -12,9 +12,9 @@ Using API provided by xCss , https://github.com/xCss/bing
 
 3.测试R版本3.5.2，python3.7.2；
 
-4.python解释器所在目录必须加入系统环境变量中；
+4.python.exe所在目录必须加入系统环境变量中；
 
-5.R解释器所在目录（bin文件夹）必须加入系统环境变量中；
+5.Rscript.exe所在目录必须加入系统环境变量中；
 
 6.运行run.bat。
 
