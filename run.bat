@@ -1,10 +1,10 @@
 @echo off
 D:
-cd D:\bing_autowallpaper-master\bing_autowallpaper-master\pictures
-DIR *.* /B >D:\bing_autowallpaper-master\bing_autowallpaper-master\configs\list.txt
+cd D:\bing_wallpaper-master\bing_wallpaper-master\pictures
+DIR *.* /B >D:\bing_wallpaper-master\bing_wallpaper-master\configs\list.txt
 
-pip list >> D:\bing_autowallpaper-master\bing_autowallpaper-master\configs\modules.txt
+pip list >> D:\bing_wallpaper-master\bing_wallpaper-master\configs\modules.txt
 
-Rscript D:\bing_autowallpaper-master\bing_autowallpaper-master\bin\scratch.R
+Rscript D:\bing_wallpaper-master\bing_wallpaper-master\bin\scratch.R
 
-python D:\bing_autowallpaper-master\bing_autowallpaper-master\bin\setwallpaper.py
+python D:\bing_wallpaper-master\bing_wallpaper-master\bin\setwallpaper.py
