@@ -1,6 +1,13 @@
 # bing_wallpaper
 Using API provided by xCss , https://github.com/xCss/bing
 
+<h2>2019/02/19更新：</h2>
+
+<h3>V 1.2</h3>
+
+解决路径限定至D盘根目录的问题，现在文件夹命名及路径都可以由用户自由指定。
+
+<br></br>
 
 <h2>2019/02/17更新：</h2>
 
@@ -19,6 +26,8 @@ Using API provided by xCss , https://github.com/xCss/bing
 6.运行run.bat。
 
 <br></br>
+
+----
 
 <h3>V 1.0</h3>
 
