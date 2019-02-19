@@ -1,1 +1,1 @@
-python D:\bing_autowallpaper-master\bing_autowallpaper-master\bin\setwallpaper.py
+python D:\bing_wallpaper-master\bing_wallpaper-master\bin\set.py
