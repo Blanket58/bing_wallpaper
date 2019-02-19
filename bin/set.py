@@ -9,5 +9,5 @@ def setwallpaper(pic):
   # refresh screen
   win32gui.SystemParametersInfo(win32con.SPI_SETDESKWALLPAPER,pic, win32con.SPIF_SENDWININICHANGE)
 if __name__=='__main__':
-  pic='D:/bing_autowallpaper-master/bing_autowallpaper-master/cache/1.jpg'
+  pic='D:/bing_wallpaper-master/bing_wallpaper-master/cache/1.jpg'
   setwallpaper(pic)
