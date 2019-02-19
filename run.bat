@@ -7,4 +7,4 @@ pip list >> D:\bing_wallpaper-master\bing_wallpaper-master\configs\modules.txt
 
 Rscript D:\bing_wallpaper-master\bing_wallpaper-master\bin\scratch.R
 
-python D:\bing_wallpaper-master\bing_wallpaper-master\bin\setwallpaper.py
+python D:\bing_wallpaper-master\bing_wallpaper-master\bin\set.py
