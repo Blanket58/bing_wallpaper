@@ -1,5 +1,5 @@
 rm(list=ls())
-setwd("D:/bing_wallpaper-master/bing_wallpaper-master/pictures")
+setwd("../pictures")
 packages<-.packages(all.available=T)
 if(!("RCurl" %in% packages)) install.packages("RCurl")
 if(!("XML" %in% packages)) install.packages("XML")
@@ -31,9 +31,8 @@ size<-"1920x1200.jpg"
 final.link<-paste(paste(part.link,collapse = "_"),size,sep = "_")
 jpgfile<-getBinaryURL(final.link)
 writeBin(jpgfile,paste0(tag.name,".jpg"))
-writeBin(jpgfile,"../cache/1.jpg")
+writeBin(jpgfile,"../cache/cache.jpg")
 #preparations for python
 modules<-readLines("../configs/modules.txt") %>% str_split(" +")
 modules<-sapply(modules[-c(1,2)],function(x) x[1])
 if(!("pywin32" %in% modules)) system("pip install pywin32")
-file.remove("../configs/modules.txt")
