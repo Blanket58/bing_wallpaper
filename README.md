@@ -9,6 +9,8 @@ Using API provided by xCss , https://github.com/xCss/bing
 
 <br></br>
 
+----
+
 <h2>2019/02/17更新：</h2>
 
 <h3>V 1.1</h3>
