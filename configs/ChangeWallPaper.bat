@@ -4,7 +4,7 @@ set n=0
 :str
 set /a n=%n%+1
 
-reg add "hkcu\control panel\desktop" /v Wallpaper /d "D:\bing_wallpaper-master\bing_wallpaper-master\cache\1.jpg" /f
+reg add "hkcu\control panel\desktop" /v Wallpaper /d "..\cache\cache.jpg" /f
 
 reg add "hkcu\control panel\desktop" /v WallpaperStyle /t REG_DWORD /d 0 /f
 
