@@ -1,4 +1,4 @@
-# bing_autowallpaper
+# bing_wallpaper
 Using API provided by xCss , https://github.com/xCss/bing
 
 
