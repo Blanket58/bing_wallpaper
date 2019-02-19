@@ -1,3 +1,3 @@
-D:
-cd D:\bing_wallpaper-master\bing_wallpaper-master\pictures
-DIR *.* /B >D:\bing_wallpaper-master\bing_wallpaper-master\cache\list.txt
+@echo off
+cd ..\pictures
+DIR *.* /B > ..\configs\list.txt
