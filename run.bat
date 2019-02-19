@@ -1,10 +1,7 @@
 @echo off
-D:
-cd D:\bing_wallpaper-master\bing_wallpaper-master\pictures
-DIR *.* /B >D:\bing_wallpaper-master\bing_wallpaper-master\configs\list.txt
-
-pip list >> D:\bing_wallpaper-master\bing_wallpaper-master\configs\modules.txt
-
-Rscript D:\bing_wallpaper-master\bing_wallpaper-master\bin\scratch.R
-
-python D:\bing_wallpaper-master\bing_wallpaper-master\bin\set.py
+set P=%cd%
+cd %P%\pictures
+DIR *.* /B > ..\configs\list.txt
+pip list > ..\configs\modules.txt
+Rscript ..\bin\scratch.R
+python ..\bin\set.py
