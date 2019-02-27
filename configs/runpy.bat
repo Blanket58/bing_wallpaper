@@ -1,1 +1,0 @@
-python ..\bin\set.py
