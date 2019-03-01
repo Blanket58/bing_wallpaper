@@ -25,9 +25,7 @@ Using API provided by xCss , https://github.com/xCss/bing
 
 4.python.exe所在目录必须加入系统环境变量中；
 
-5.Rscript.exe所在目录必须加入系统环境变量中；
-
-6.运行run.bat。
+5.Rscript.exe所在目录必须加入系统环境变量中。
 
 <br></br>
 
