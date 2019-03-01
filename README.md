@@ -1,5 +1,5 @@
 # bing_wallpaper
-Crawls pictures from the website owned by xCss , https://github.com/xCss/bing
+Randomly crawls down bing daily picture from a third party database website (thanks to xCss , https://github.com/xCss/bing).
 
 具体使用方法见wiki。
 
