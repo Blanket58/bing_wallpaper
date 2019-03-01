@@ -1,5 +1,9 @@
 # bing_wallpaper
-Using API provided by xCss , https://github.com/xCss/bing
+Crawls pictures from the website owned by xCss , https://github.com/xCss/bing
+
+具体使用方法见wiki。
+
+Detailed usage of this app is illustrated in wiki.
 
 <h2>2019/02/19更新：</h2>
 
