@@ -16,11 +16,7 @@ Detailed usage of this app is illustrated in wiki.
 
 解决路径限定至D盘根目录的问题，现在文件夹命名及路径都可以由用户自由指定。
 
-<br></br>
-
 ----
-
-<br></br>
 
 <h2>2019/02/17更新：</h2>
 
@@ -36,11 +32,7 @@ Detailed usage of this app is illustrated in wiki.
 
 5.Rscript.exe所在目录必须加入系统环境变量中。
 
-<br></br>
-
 ----
-
-<br></br>
 
 <h3>V 1.0</h3>
 
