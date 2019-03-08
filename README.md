@@ -5,11 +5,6 @@ Randomly crawls down bing daily picture from a third party database website (tha
 
 Detailed usage of this app is illustrated in wiki.
 
-
-<h2>紧急：2019/03/07，目标服务器故障，此app暂时不可用</h2>
-
-----
-
 <h2>2019/02/19更新：</h2>
 
 <h3>V 1.2</h3>
