@@ -73,7 +73,6 @@ if(!isTRUE(judge1) & !isTRUE(judge2) & is.na(options["previous.n_days_ago"])){
       original.link<-xpathSApply(doc = parsed.doc,path = xpath) %>% str_split("\"")
       part.link<-str_split(original.link,"_")[[1]][-3]
       tag.name<-str_extract(part.link[1],"[[:alpha:]]+$")
-
     }else{
       if(page_num <= n){
         url<-paste0("https://bing.ioliu.cn/?p=",page_num)
