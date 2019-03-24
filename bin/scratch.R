@@ -88,7 +88,7 @@ if(!isTRUE(judge1) & !isTRUE(judge2) & is.na(options["previous.n_days_ago"])){
 
   # Download
   size<-"1920x1080.jpg"
-  final.link<-paste(paste(part.link,collapse = "_"),size,sep = "_")
+  final.link<-ifelse(exists("final.link"),final.link,paste(paste(part.link,collapse = "_"),size,sep = "_"))
   jpgfile<-getBinaryURL(final.link)
   writeBin(jpgfile,paste0("../pictures/",tag.name,".jpg"))
   writeBin(jpgfile,"../cache/cache.jpg")  
