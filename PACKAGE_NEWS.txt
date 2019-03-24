@@ -5,6 +5,16 @@ Randomly crawls down bing daily picture from a third party database website (tha
 
 Detailed usage of this app is illustrated in wiki.
 
+2019/03/24更新：
+
+V 1.3
+
+1.在根目录下新增配置项文件"options.yaml",允许用户进行更多控制操作,以记事本打开文件，操作说明已在该文件中详述；
+
+2.解决在一定概率下图片损坏的问题，以牺牲一小部分图片分辨率为代价。
+
+----
+
 2019/02/19更新：
 
 V 1.2
