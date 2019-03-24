@@ -13,6 +13,4 @@ def setwallpaper(pic):
     win32gui.SystemParametersInfo(win32con.SPI_SETDESKWALLPAPER, pic, win32con.SPIF_SENDWININICHANGE)
 
 
-if __name__ == '__main__':
-    pic = os.getcwd() + '\\cache\\cache.jpg'
-    setwallpaper(pic)
+setwallpaper(os.path.dirname(os.getcwd()) + "\\cache\\cache.jpg")
