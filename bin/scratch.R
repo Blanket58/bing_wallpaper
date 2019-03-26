@@ -10,7 +10,8 @@ library(yaml)
 options<-unlist(read_yaml("../options.yaml"))
 judge1<-options["current"] %in% c(1,TRUE)
 judge2<-options["previous.random"] %in% c(1,TRUE)
-if(!isTRUE(judge1) & !isTRUE(judge2) & is.na(options["previous.n_days_ago"])){
+n_days_ago<-as.numeric(options["previous.n_days_ago"])
+if(!isTRUE(judge1) && !isTRUE(judge2) && (is.na(options["previous.n_days_ago"]) || n_days_ago != as.integer(n_days_ago) || n_days_ago <= 0)){
   cat("Warning:\nInappropriate configuration of file 'options.yaml'.\nPlease check manually.\nThis app will automatically exit in 10 seconds.")
   Sys.sleep(10)
 }else{
@@ -38,7 +39,7 @@ if(!isTRUE(judge1) & !isTRUE(judge2) & is.na(options["previous.n_days_ago"])){
 
   ## Previous
   # Random
-  if(judge1==FALSE & judge2){
+  if(judge1==FALSE && judge2){
     url<-"https://bing.ioliu.cn/?p=1"
     parsed.doc<-getURL(url,curl = handle) %>% htmlParse
     page.xpath<-"/html/body/div[4]/span"
@@ -60,8 +61,6 @@ if(!isTRUE(judge1) & !isTRUE(judge2) & is.na(options["previous.n_days_ago"])){
   }
 
   # n_days_ago
-  if(judge1==FALSE & judge2==FALSE){
-    n_days_ago<-options["previous.n_days_ago"] %>% as.numeric
     pic_num<-ifelse(n_days_ago %% 12 == 0,12,n_days_ago %% 12)
     page_num<-ifelse(n_days_ago %% 12 == 0,n_days_ago %/% 12,n_days_ago %/% 12 +1)
     url<-"https://bing.ioliu.cn/?p=1"
@@ -81,11 +80,11 @@ if(!isTRUE(judge1) & !isTRUE(judge2) & is.na(options["previous.n_days_ago"])){
         part.link<-str_split(original.link,"_")[[1]][-3]
         tag.name<-str_extract(part.link[1],"[[:alpha:]]+$")
       }else{
-        cat("Number out of bound! Try again with a smaller one.")
+        cat("Warning!\nNumber out of bound! Try again with a smaller one.")
         Sys.sleep(5)
       }
     }
-  }  
+  }
 
   # Download
   size<-"1920x1080.jpg"
