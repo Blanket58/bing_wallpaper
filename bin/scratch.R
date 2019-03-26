@@ -61,6 +61,7 @@ if(!isTRUE(judge1) && !isTRUE(judge2) && (is.na(options["previous.n_days_ago"]) 
   }
 
   # n_days_ago
+  if(judge1==FALSE && judge2==FALSE){
     pic_num<-ifelse(n_days_ago %% 12 == 0,12,n_days_ago %% 12)
     page_num<-ifelse(n_days_ago %% 12 == 0,n_days_ago %/% 12,n_days_ago %/% 12 +1)
     url<-"https://bing.ioliu.cn/?p=1"
