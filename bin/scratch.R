@@ -82,6 +82,7 @@ if(!isTRUE(judge1) & !isTRUE(judge2) & is.na(options["previous.n_days_ago"])){
         tag.name<-str_extract(part.link[1],"[[:alpha:]]+$")
       }else{
         cat("Number out of bound! Try again with a smaller one.")
+        Sys.sleep(5)
       }
     }
   }  
