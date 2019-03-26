@@ -38,7 +38,7 @@ if(!isTRUE(judge1) & !isTRUE(judge2) & is.na(options["previous.n_days_ago"])){
 
   ## Previous
   # Random
-  if(!isTRUE(judge1) & judge2){
+  if(judge1==FALSE & judge2){
     url<-"https://bing.ioliu.cn/?p=1"
     parsed.doc<-getURL(url,curl = handle) %>% htmlParse
     page.xpath<-"/html/body/div[4]/span"
@@ -60,7 +60,7 @@ if(!isTRUE(judge1) & !isTRUE(judge2) & is.na(options["previous.n_days_ago"])){
   }
 
   # n_days_ago
-  if(!all(judge1,judge2)){
+  if(judge1==FALSE & judge2==FALSE){
     n_days_ago<-options["previous.n_days_ago"] %>% as.numeric
     pic_num<-ifelse(n_days_ago %% 12 == 0,12,n_days_ago %% 12)
     page_num<-ifelse(n_days_ago %% 12 == 0,n_days_ago %/% 12,n_days_ago %/% 12 +1)
