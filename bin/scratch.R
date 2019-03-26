@@ -12,7 +12,7 @@ judge1<-options["current"] %in% c(1,TRUE)
 judge2<-options["previous.random"] %in% c(1,TRUE)
 n_days_ago<-as.numeric(options["previous.n_days_ago"])
 if(!isTRUE(judge1) && !isTRUE(judge2) && (is.na(options["previous.n_days_ago"]) || n_days_ago != as.integer(n_days_ago) || n_days_ago <= 0)){
-  cat("Warning:\nInappropriate configuration of file 'options.yaml'.\nPlease check manually.\nThis app will automatically exit in 5 seconds.")
+  cat("Warning:\nInappropriate configuration of file 'options.yaml'.\nPlease check manually.\nThis process will automatically exit in 5 seconds.")
   Sys.sleep(5)
 }else{
   cat("Configs check passed.\nProgress begin.\n")
