@@ -1,5 +1,3 @@
 Package    Version
 ---------- -------
-pip        19.0.3 
-pywin32    224    
-setuptools 40.6.2 
+
