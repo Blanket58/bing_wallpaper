@@ -7,3 +7,5 @@
 建议使用前阅读Wiki及文件"PACKAGE_NEWS.txt"
 
 推荐使用 branch "recommended"，优化代码结构，速度更快，体量更小。
+
+目前只在win10下测试通过。
