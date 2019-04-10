@@ -6,6 +6,6 @@ current: false
 # 是否需要历史壁纸
 previous:
   # 是否随机设置历史壁纸
-  random: true
+  random: false
   # 手动指定只需要n天前的当日壁纸(此配置项只在random与current都处于关闭状态时才会生效,建议不使用此项时设置为null)
-  n_days_ago: null
+  n_days_ago: 900
