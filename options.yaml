@@ -1,11 +1,11 @@
 # CHANGE AS YOUR NEEDS
 
-# 是否同步当天的必应官网背景壁纸(此配置项优先级高于其他所有)
-current: false
+# 是否同步当天的必应官网背景壁纸
+"current": "true"
 
 # 是否需要历史壁纸
-previous:
+"previous":
   # 是否随机设置历史壁纸
-  random: false
-  # 手动指定只需要n天前的当日壁纸(此配置项只在random与current都处于关闭状态时才会生效,建议不使用此项时设置为null)
-  n_days_ago: 900
+  "random": "false"
+  # 手动指定只需要n天前的当日壁纸(此配置项只在random与current都处于关闭状态时才会生效,不使用此项时设置为null)
+  "n_days_ago": null
