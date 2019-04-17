@@ -9,7 +9,9 @@ Detailed usage of this app is illustrated in wiki.
 
 V 2.1
 
-重写代码逻辑，更严谨，配置文件错误时给出详细报错信息
+1.重写代码逻辑，更严谨，配置文件错误时给出详细报错信息；
+
+2.发现在windows下用记事本打开文件'options.yaml'修改保存后格式会由原本的UTF-8变成UTF-8 with BOM，从而造成文件读取错误，建议使用一些常见的编辑器如sublime、ultraEdit、notepad++等打开文件。
 
 ----
 
