@@ -38,7 +38,7 @@ myStop <- function(x) {
   stop(x)
 }
 # read option file
-options <- unlist(read_yaml("../options.yaml", error.label = myStop(error4)))
+options <- unlist(read_yaml("../options.yaml"))
 option1 <- options["current"] %>% as.logical %>% isTRUE
 option2 <- options["previous.random"] %>% as.logical %>% isTRUE
 option3 <- as.integer(options["previous.n_days_ago"])
