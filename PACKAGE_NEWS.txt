@@ -13,7 +13,9 @@ V 2.1
 
 2.因为历史壁纸的爬取成功与否取决于服务器状态，因此增加安全模式，手动指定爬取过去7天内（含7天）的壁纸时，不会出现因服务器异常造成的失败；
 
-3.重命名配置项文件"options.yaml" -> "options.json"。
+3.修复windows下以记事本打开配置项文件'options.json'修改保存后文件无法读取的错误，现在会提示一个警告信息'file UTF8 with BOM'，但程序会正确地执行，想要消除这个警告信息，请下载常见代码编辑器sublime、notepad++、ultraEdit等，在其中将文件转码为UTF8 without BOM；
+
+4.重命名配置项文件"options.yaml" -> "options.json"。
 
 ----
 
