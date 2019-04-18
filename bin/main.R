@@ -13,6 +13,7 @@ modules<-readLines("../configs/modules.txt") %>% str_split(" +")
 modules<-sapply(modules[-c(1,2)],function(x) x[1])
 if(!any("pywin32" == modules)) system("pip install pywin32")
 message("All dependencies have been successfully installed.\n")
+
 # error class
 condition <- function(subclass, message, call = sys.call(-1), ...) {
   structure(
@@ -25,6 +26,7 @@ error1 <- condition(c("error1", "error"), "Error1: Conflict arguments, please ch
 error2 <- condition(c("error2", "error"), "Error2: The option 'n_days_ago' will only be activated while option 'current' and option 'random' are at 'false' status.")
 error3 <- condition(c("error3", "error"), "Error3: Invalid argument for option 'n_days_ago', it must be a positive integer.")
 error4 <- condition(c("error4", "error"), "Error4: Invalid argument for option 'n_days_ago', number out of bound! Try again with a smaller one.")
+
 myExit <- function() {
   for(i in 9:1) {
     cat(sprintf("This process will automatically exit in %s seconds.\r", i))
@@ -33,34 +35,27 @@ myExit <- function() {
   }
   cat("\n")
 }
+
 myStop <- function(x) {
   on.exit(myExit())
   stop(x)
 }
+
 # read option file
-options <- unlist(read_json("../options.json"))
-option1 <- options["current"] %>% as.logical
-option2 <- options["random"] %>% as.logical
-option3 <- options["n_days_ago"] %>% as.integer
+options <- fromJSON("../options.json")
+option1 <- options$current %>% as.logical
+option2 <- options$random %>% as.logical
+option3 <- options$n_days_ago %>% as.integer
+
 # config check
 if(option1 && option2) myStop(error1)
 if((option1 || option2) && !is.na(option3)) myStop(error2)
 if(!is.na(option3)) {if(option3 <= 0) myStop(error3)}
 message("Configs check passed.\nProgress begin.\n")
-# begin
-`%<d-%` <- function(x, value) {
-  name <- substitute(x)
-  value <- substitute(value)
-  env <- parent.frame()
-  call <- substitute(delayedAssign(deparse(name), value, eval.env = env,
-      assign.env = env), list(value = value))
-  eval(call)
-  invisible()
-}
 
+# begin
 user_agent <- "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36"
 handle <- getCurlHandle(followlocation=TRUE,autoreferer=TRUE,httpheader=list("user-agent"=user_agent))
-namelist %<d-% readLines("../configs/list.txt") %>% str_extract_all("^[[:alpha:]]+") %>% unlist
 
 initialize <- function(class) {
   parsed_doc <- character(0)
@@ -88,6 +83,7 @@ crawl.current <- function(f, url) {
 
 crawl.random <- function(f, url) {
   message("Random mode.\n")
+  namelist <- readLines("../configs/list.txt") %>% str_extract_all("^[[:alpha:]]+") %>% unlist
   f(url)
   parsed_doc <- environment(f)$parsed_doc
   page_xpath <- "/html/body/div[4]/span"
