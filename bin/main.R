@@ -77,7 +77,7 @@ crawl.current <- function(f, url) {
   xpath <- "//*[@id='bgLink']"
   link <- xpathSApply(parsed_doc, xpath, xmlGetAttr, "href")
   final_link <- paste0(url, link)
-  tag_name <- unlist(str_split(part_link,"OHR."))[2] %>% str_split("_")
+  tag_name <- unlist(str_split(link,"OHR."))[2] %>% str_split("_")
   tag_name <- unlist(tag_name)[1]
   return(list(final_link, tag_name))
 }
