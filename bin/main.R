@@ -45,12 +45,13 @@ myStop <- function(x) {
 options <- fromJSON("../options.json")
 option1 <- options$current %>% as.logical
 option2 <- options$random %>% as.logical
-option3 <- options$n_days_ago %>% as.integer
+option3 <- options$n_days_ago
 
 # config check
 if(option1 && option2) myStop(error1)
-if((option1 || option2) && !is.na(option3)) myStop(error2)
-if(!is.na(option3)) {if(option3 <= 0) myStop(error3)}
+if((option1 || option2) && !is.null(option3)) myStop(error2)
+if(!is.null(option3)) {if(option3 <= 0) myStop(error3)}
+option3 <- as.integer(option3)
 message("Configs check passed.\nProgress begin.\n")
 
 # begin
