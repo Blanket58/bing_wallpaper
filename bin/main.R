@@ -11,7 +11,7 @@ library(XML)
 library(stringr)
 modules<-readLines("../configs/modules.txt") %>% str_split(" +")
 modules<-sapply(modules[-c(1,2)],function(x) x[1])
-if(!any("pywin32" == modules)) system("pip install pywin32")
+if(!any("pywin32" == modules)) system("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pywin32")
 message("All dependencies have been successfully installed.\n")
 
 # error class
