@@ -5,6 +5,14 @@ Randomly crawls down bing daily picture from a third party database website (tha
 
 Detailed usage of this app is illustrated in wiki.
 
+2019/04/29更新：
+
+V 3.0 beta
+
+新增测试功能UI界面，运行根目录下的文件"RUN_UI.bat"，UI功能与其它功能独立，互不影响，现在UI界面只开发了浏览功能，其它功能后续有时间再完善。
+
+----
+
 2019/04/17更新：
 
 V 2.1
