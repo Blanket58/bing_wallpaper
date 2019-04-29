@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    text-align: center;
+}
+header {
+    height: 76px;
+    position: fixed;
+    width: 100%;
+    background-color: gray;
+}
+.item {
+    float: left;
+    width: 33.33333333%;
+    box-sizing: border-box;
+    min-width: 100px;
+}
+.item img {
+    max-width: 100%;
+    display: block;
+}
+.container {
+    width: 100%;
+    padding-top: 76px;
+}
+.label {
+    font-family: 'Times New Roman';
+    font-size: 36px;
+    color: white;
+    font-weight: bold;
+    float: left;
+    line-height: 76px;
+    text-decoration: none;
+    margin-left: 2em;
+}
+.nav {
+    font-family: 'Times New Roman';
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    line-height: 76px;
+    text-decoration: none;
+    margin-right: 2em;
+}
+svg {
+    fill: white;
+}
+.page {
+    text-align: center;
+}
+.page a {
+    text-decoration: none;
+    font-family: 'Microsoft YaHei';
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
