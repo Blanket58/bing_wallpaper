@@ -5,10 +5,12 @@ if(!any("RCurl" == packages)) install.packages("RCurl",repos = repo)
 if(!any("XML" == packages)) install.packages("XML",repos = repo)
 if(!any("stringr" == packages)) install.packages("stringr",repos = repo)
 if(!any("jsonlite" == packages)) install.packages("jsonlite",repos = repo)
-library(jsonlite)
+if(!any("shiny" == packages)) install.packages("shiny",repos = repo)
+if(!any("shinyjs" == packages)) install.packages("shinyjs",repos = repo)
+library(jsonlite, quietly = TRUE)
 library(RCurl, quietly = TRUE)
-library(XML)
-library(stringr)
+library(XML, quietly = TRUE)
+library(stringr, quietly = TRUE)
 modules<-readLines("../configs/modules.txt") %>% str_split(" +")
 modules<-sapply(modules[-c(1,2)],function(x) x[1])
 if(!any("pywin32" == modules)) system("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pywin32")
@@ -46,17 +48,25 @@ options <- fromJSON("../options.json")
 option1 <- options$current %>% as.logical
 option2 <- options$random %>% as.logical
 option3 <- options$n_days_ago
+option3 <- ifelse(is.null(option3), NA, as.integer(option3))
+
 
 # config check
 if(option1 && option2) myStop(error1)
-if((option1 || option2) && !is.null(option3)) myStop(error2)
-if(!is.null(option3)) {if(option3 <= 0) myStop(error3)}
-option3 <- as.integer(option3)
+if((option1 || option2) && !is.na(option3)) myStop(error2)
+if(!is.na(option3)) {if(option3 <= 0) myStop(error3)}
 message("Configs check passed.\nProgress begin.\n")
 
 # begin
-user_agent <- "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36"
-handle <- getCurlHandle(followlocation=TRUE,autoreferer=TRUE,httpheader=list("user-agent"=user_agent))
+handle <- getCurlHandle(
+  followlocation = TRUE,
+  autoreferer = TRUE,
+  httpheader = list(
+    "User-Agent" = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36",
+    "Accept" = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
+    "Accept-Language" = "zh-CN,zh;q=0.9",
+    "Connection" = "keep-alive"
+))
 
 initialize <- function(class) {
   parsed_doc <- character(0)
@@ -161,9 +171,9 @@ if(option1)
   run("current", url1)
 else if(option2)
   run("random", url2)
-else if(option3 < 8)
+else if(option3 < 8 && !is.na(option3))
   run("n_days_ago_safemode", url1)
-else
+else if(option3 >= 8 && !is.na(option3))
   run("n_days_ago", url2)
 }
 
