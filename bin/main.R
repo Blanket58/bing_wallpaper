@@ -44,7 +44,7 @@ myStop <- function(x) {
 }
 
 # read option file
-options <- fromJSON("../options.json")
+options <- fromJSON("../config.json")
 option1 <- options$current %>% as.logical
 option2 <- options$random %>% as.logical
 option3 <- options$n_days_ago
