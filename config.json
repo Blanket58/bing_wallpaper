@@ -1,9 +1,9 @@
 // CHANGE AS YOUR NEEDS
-{
+[{
 // 是否同步当天的必应官网背景壁纸
 "current": "true",
 // 是否随机设置历史壁纸
 "random": "false",
 // 手动指定只需要n天前的当日壁纸(请输入正整数，此配置项只在random与current都处于关闭状态时才会生效,不使用此项时设置为null，否则报错)
 "n_days_ago": null
-}
+}]
