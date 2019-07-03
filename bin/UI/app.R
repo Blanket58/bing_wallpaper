@@ -1,6 +1,6 @@
-library(shiny)
-library(shinyjs)
-library(RCurl, quietly = TRUE)
+library(shiny, quietly = TRUE)
+library(shinyjs, quietly = TRUE, warn.conflicts = FALSE)
+library(RCurl, quietly = TRUE, warn.conflicts = FALSE)
 library(XML, quietly = TRUE)
 library(stringr, quietly = TRUE)
 
