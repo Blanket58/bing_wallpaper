@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--bing_wallaper by Blanket58; https://github.com/Blanket58/bing_wallpaper-->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>必应自动壁纸</title>
+        <link href="https://cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <link href="https://cdn.bootcss.com/font-awesome/5.8.0/css/all.css" rel="stylesheet" />
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: 'montserrat', sans-serif;
+                box-sizing: border-box;
+            }
+            .middle {
+                position: absolute;
+                top: 10%;
+                right: 10%;
+                transform: translate(-50%, -50%);
+            }
+            .nav {
+                display: inline-block;
+                width: 90px;
+                height: 90px;
+                background: #f1f1f1;
+                margin: 10px;
+                border-radius: 30%;
+                box-shadow: 0 5px 15px -5px #00000070;
+                color: #3498db;
+                overflow: hidden;
+                position: relative;
+                text-align: center;
+            }
+            .nav i {
+                line-height: 90px;
+                font-size: 26px;
+                transition: 0.2s linear;
+            }
+            .nav:hover i {
+                transform: scale(1.3);
+                color: #f1f1f1;
+            }
+            .nav::before {
+                content: '';
+                position: absolute;
+                width: 120%;
+                height: 120%;
+                background: #3498db;
+                transform: rotate(45deg);
+                left: -110%;
+                top: 90%
+            }
+            .nav:hover::before {
+                animation: flash 0.7s 1;
+                top: -10%;
+                left: -10%;
+            }
+            @keyframes flash {
+                0% {
+                    left: -100%;
+                    top: 90%;
+                }
+                50% {
+                    left: 10%;
+                    top: -30%;
+                }
+                100% {
+                    left: -10%;
+                    top: -10%;
+                }
+            }
+            .gallery-section {
+                width: 100%;
+                padding: 60px 0;
+                background: #f1f1f1;
+            }
+            .inner-width {
+                width: 100%;
+                max-width: 1200px;
+                margin: auto;
+                padding: 0 20px;
+            }
+            .gallery-section h1 {
+                text-align: center;
+                text-transform: uppercase;
+                color: #333;
+            }
+            .border {
+                width: 180px;
+                height: 4px;
+                background: #333;
+                margin: 60px auto;
+            }
+            .gallery-section .gallery {
+                display: flex;
+                flex-wrap: wrap-reverse;
+                justify-content: center;
+            }
+            .gallery-section .image {
+                flex: 25%;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .gallery-section .image img {
+                width: 100%;
+                height: 100%;
+                transition: 0.4s;
+            }
+            .gallery-section .image:hover img {
+                transform: scale(1.4) rotate(15deg);
+            }
+            @media screen and (max-width: 960px) {
+                .gallery-section .image {
+                    flex: 33.33%;
+                }
+            }
+            @media screen and (max-width: 768px) {
+                .gallery-section .image {
+                    flex: 50%;
+                }
+            }
+            @media screen and (max-width: 480px) {
+                .gallery-section .image {
+                    flex: 100%;
+                }
+            }
+            .page {
+                 text-align: center;
+            }
+            .nouse {
+                 text-align: center;
+            }
+            .copyright {
+                 text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="middle">
+            <a class="nav" target="_blank" href="https://github.com/Blanket58/bing_wallpaper">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="gallery-section">
+            <div class="inner-width">
+                <h1>Bing Wallpaper</h1>
+                <div class="border"></div>
+                <div class="gallery">
+                    <a id="a1" href={{url1}} class="image">
+                        <img id="img1" src={{url1}} alt="" />
+                    </a>
+                    <a id="a2" href={{url2}} class="image">
+                        <img id="img2" src={{url2}} alt="" />
+                    </a>
+                    <a id="a3" href={{url3}} class="image">
+                        <img id="img3" src={{url3}} alt="" />
+                    </a>
+                    <a id="a4" href={{url4}} class="image">
+                        <img id="img4" src={{url4}} alt="" />
+                    </a>
+                    <a id="a5" href={{url5}} class="image">
+                        <img id="img5" src={{url5}} alt="" />
+                    </a>
+                    <a id="a6" href={{url6}} class="image">
+                        <img id="img6" src={{url6}} alt="" />
+                    </a>
+                    <a id="a7" href={{url7}} class="image">
+                        <img id="img7" src={{url7}} alt="" />
+                    </a>
+                    <a id="a8" href={{url8}} class="image">
+                        <img id="img8" src={{url8}} alt="" />
+                    </a>
+                    <a id="a9" href={{url9}} class="image">
+                        <img id="img9" src={{url9}} alt="" />
+                    </a>
+                    <a id="a10" href={{url10}} class="image">
+                        <img id="img10" src={{url10}} alt="" />
+                    </a>
+                    <a id="a11" href={{url11}} class="image">
+                        <img id="img11" src={{url11}} alt="" />
+                    </a>
+                    <a id="a12" href={{url12}} class="image">
+                        <img id="img12" src={{url12}} alt="" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="nouse">
+            <p>&#8595</p>
+        </div>
+        <div class="page">
+            <button id="last_url" type="button" class="btn btn-default action-button shiny-bound-input">上一页</button>
+            <span id="page">{{page}}</span>
+            <button id="next_url" type="button" class="btn btn-default action-button shiny-bound-input">下一页</button>
+        </div>
+        <div class="copyright">
+          <p>
+            所有图片均来自必应&copy，请勿用作商业用途。
+          </p>
+        </div>
+        <script>
+            $('.gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            })
+        </script>
+    </body>
+</html>
