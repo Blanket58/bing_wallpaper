@@ -23,7 +23,7 @@ page_total <- str_extract(page, "\\d+$") %>% as.integer
 for(i in 1:12) {
   assign(paste0("url",i), links[i])
 }
-opts <- list(filename = "templet.html",
+opts <- list(filename = "template.html",
              url1 = url1,
              url2 = url2,
              url3 = url3,
@@ -68,14 +68,16 @@ server <- shinyServer(function(input, output, session) {
   observeEvent(input$last_url, {
     page_jump("back", page_now)
     for(i in 1:12) {
-      runjs(sprintf("document.getElementById('url%s').src = '%s';", i, links[i]))
+      runjs(sprintf("document.getElementById('a%s').href = '%s';", i, links[i]))
+      runjs(sprintf("document.getElementById('img%s').src = '%s';", i, links[i]))
     }
     html("page", page)
   })
   observeEvent(input$next_url, {
     page_jump("forward", page_now)
     for(i in 1:12) {
-      runjs(sprintf("document.getElementById('url%s').src = '%s';", i, links[i]))
+      runjs(sprintf("document.getElementById('a%s').href = '%s';", i, links[i]))
+      runjs(sprintf("document.getElementById('img%s').src = '%s';", i, links[i]))
     }
     html("page", page)
   })
