@@ -3,6 +3,12 @@
 [R Version 3.5.2](https://www.r-project.org/) |
 [Python Version 3.7.2](https://www.python.org/downloads/)
 
+* [English version of README](https://github.com/Blanket58/bing_wallpaper/blob/recommended/README_en.md) :point_left:
+
+### 传送门：
+
+https://blanket58.shinyapps.io/bingwallpaper/
+
 ### 简介：
 
 一键抓取必应壁纸图片并自动设置为桌面壁纸。
