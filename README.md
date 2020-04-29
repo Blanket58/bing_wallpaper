@@ -23,7 +23,7 @@ https://blanket58.shinyapps.io/bingwallpaper/
 
 注意：三个选项同时只能打开一个
 
-### UI：
+### UI：(Maybe Broken)
 
 完善UI界面，运行根目录下的文件"RUN_UI.bat"，UI功能与其它功能独立，互不影响，现在UI界面只开发了浏览功能，其它功能后续有时间再完善。
 
