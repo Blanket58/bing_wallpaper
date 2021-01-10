@@ -1,7 +1,6 @@
 # bing_wallpaper
 
-[R Version 3.6.3](https://www.r-project.org/) |
-[Python Version 3.7.9](https://www.python.org/downloads/)
+[R Version 3.6.3](https://www.r-project.org/) | [Python Version 3.7.9](https://www.python.org/downloads/)
 
 ### Introduction：
 
@@ -9,7 +8,7 @@ Just one press, easily crawl down bing pictures and set it to be your desktop wa
 
 ### Features：
 
-File `config.json` is the one does configuration purpose, edit it as you like.
+File `config.yaml` is the one does configuration purpose, edit it as you like.
 
 So far, there are three modes you can choose:
 
