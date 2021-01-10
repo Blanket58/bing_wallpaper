@@ -1,4 +1,3 @@
 @echo off
-cd %cd%/pictures
-DIR *.* /B > ../configs/list.txt
-Rscript ../bin/main.R
+Rscript src/crawl.R
+python src/set.py

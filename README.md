@@ -1,7 +1,7 @@
 # bing_wallpaper
 
-[R Version 3.5.2](https://www.r-project.org/) |
-[Python Version 3.7.2](https://www.python.org/downloads/)
+[R Version 3.6.3](https://www.r-project.org/) |
+[Python Version 3.7.9](https://www.python.org/downloads/)
 
 * [English version of README](https://github.com/Blanket58/bing_wallpaper/blob/recommended/README_en.md) :point_left:
 
@@ -19,11 +19,11 @@ https://blanket58.shinyapps.io/bingwallpaper/
 
 * current：是否同步当天的必应官网背景壁纸 [true/false]
 * random：是否随机设置历史壁纸 [true/false]
-* n_days_ago：手动指定只需要 N 天前的当日壁纸（请输入正整数，不使用此项时设置为null，否则报错）
+* n_days_ago：手动指定只需要 N 天前的当日壁纸 [正整数/false]
 
 注意：三个选项同时只能打开一个
 
-### UI：(Maybe Broken)
+### UI：
 
 完善UI界面，运行根目录下的文件"RUN_UI.bat"，UI功能与其它功能独立，互不影响，现在UI界面只开发了浏览功能，其它功能后续有时间再完善。
 

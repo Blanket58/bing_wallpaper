@@ -1,4 +1,5 @@
 # preparation
+library(yaml, quietly = TRUE)
 library(jsonlite, quietly = TRUE)
 library(RCurl, quietly = TRUE)
 library(XML, quietly = TRUE)
@@ -12,10 +13,11 @@ condition <- function(subclass, message, call = sys.call(-1), ...) {
     ...
   )
 }
-error1 <- condition(c("error1", "error"), "Error1: Conflict arguments, please check to be sure that there is only one option at 'true' status at a time.")
-error2 <- condition(c("error2", "error"), "Error2: The option 'n_days_ago' will only be activated while option 'current' and option 'random' are at 'false' status.")
-error3 <- condition(c("error3", "error"), "Error3: Invalid argument for option 'n_days_ago', it must be a positive integer.")
-error4 <- condition(c("error4", "error"), "Error4: Invalid argument for option 'n_days_ago', number out of bound! Try again with a smaller one.")
+error1 <- condition(c("error1", "error"), "There must be at least one option is true.")
+error2 <- condition(c("error2", "error"), "Conflict arguments, please check to be sure that there is only one option is true at one time.")
+error3 <- condition(c("error3", "error"), "The option 'n_days_ago' will only be activated when option 'current' and option 'random' are false.")
+error4 <- condition(c("error4", "error"), "Invalid argument for option 'n_days_ago', it must be a positive integer.")
+error5 <- condition(c("error5", "error"), "Invalid argument for option 'n_days_ago', number out of bound! Try again with a smaller one.")
 
 myExit <- function() {
   for(i in 9:1) {
@@ -31,18 +33,18 @@ myStop <- function(x) {
   stop(x)
 }
 
-# read option file
-options <- fromJSON("../config.json")
-option1 <- options$current %>% as.logical
-option2 <- options$random %>% as.logical
-option3 <- options$n_days_ago
-option3 <- ifelse(is.null(option3), NA, as.integer(option3))
-
+# read config file
+config <- read_yaml("config.yaml")
 
 # config check
-if(option1 && option2) myStop(error1)
-if((option1 || option2) && !is.na(option3)) myStop(error2)
-if(!is.na(option3)) {if(option3 <= 0) myStop(error3)}
+if(is.logical(config$n_days_ago)) {
+  if(!any(unlist(config))) myStop(error1)
+  if(sum(unlist(config)) != 1) myStop(error2)
+} else if(is.integer(config$n_days_ago) && config$n_days_ago > 0) {
+  if(config$current && config$random) myStop(error3)
+} else {
+  myStop(error4)
+}
 message("Configs check passed.\nProgress begin.\n")
 
 # begin
@@ -59,7 +61,7 @@ handle <- getCurlHandle(
 initialize <- function(class) {
   parsed_doc <- character(0)
   f <- function(url) {
-  parsed_doc <<- getURL(url, curl = handle) %>% htmlParse
+    parsed_doc <<- getURL(url, curl = handle) %>% htmlParse
   }
   structure(f, class = class)
 }
@@ -82,7 +84,7 @@ crawl.current <- function(f, url) {
 
 crawl.random <- function(f, url) {
   message("Random mode.\n")
-  namelist <- readLines("../configs/list.txt") %>% str_extract_all("^[[:alpha:]]+") %>% unlist
+  namelist <- gsub('.jpg', '', list.files(path = 'pictures', pattern = '*.jpg'))
   f(url)
   parsed_doc <- environment(f)$parsed_doc
   page_xpath <- "/html/body/div[4]/span"
@@ -106,35 +108,36 @@ crawl.random <- function(f, url) {
 }
 
 crawl.n_days_ago <- function(f, url) {
-  message(sprintf("%s days ago mode.\n", option3))
+  days <- config$n_days_ago
+  message(sprintf("%s days ago mode.\n", days))
   f(url)
   parsed_doc <- environment(f)$parsed_doc
-  pic_num<-ifelse(option3 %% 12 == 0, 12, option3 %% 12)
-  page_num<-ifelse(option3 %% 12 == 0, option3 %/% 12, option3 %/% 12 +1)
-  xpath<-paste0("//div[3]/div[",pic_num,"]/div/img/@src")
-  page_xpath<-"//div[4]/span"
+  pic_num <- ifelse(days %% 12 == 0, 12, days %% 12)
+  page_num <- ifelse(days %% 12 == 0, days %/% 12, days %/% 12 +1)
+  xpath <- paste0("//div[3]/div[",pic_num,"]/div/img/@src")
+  page_xpath <- "//div[4]/span"
   total_pages <- xpathSApply(doc = parsed_doc,path = page_xpath,fun = xmlValue) %>% str_extract(" \\d+") %>% as.integer
   if(page_num == 1) {
-    original_link<-xpathSApply(doc = parsed_doc,path = xpath) %>% str_split("\"")
-    part_link<-str_split(original_link,"_")[[1]][-3]
-    tag_name<-str_extract(part_link[1],"[[:alpha:]]+$")
+    original_link <- xpathSApply(doc = parsed_doc,path = xpath) %>% str_split("\"")
+    part_link <- str_split(original_link,"_")[[1]][-3]
+    tag_name <- str_extract(part_link[1],"[[:alpha:]]+$")
   } else {
     if(page_num <= total_pages){
-      url<-paste0("https://bing.ioliu.cn/?p=",page_num)
-      parsed_doc<-getURL(url,curl = handle) %>% htmlParse
-      original_link<-xpathSApply(doc = parsed_doc,path = xpath) %>% str_split("\"")
-      part_link<-str_split(original_link,"_")[[1]][-3]
-      tag_name<-str_extract(part_link[1],"[[:alpha:]]+$")
-    } else myStop(error4)
+      url <- paste0("https://bing.ioliu.cn/?p=",page_num)
+      parsed_doc <- getURL(url,curl = handle) %>% htmlParse
+      original_link <- xpathSApply(doc = parsed_doc,path = xpath) %>% str_split("\"")
+      part_link <- str_split(original_link,"_")[[1]][-3]
+      tag_name <- str_extract(part_link[1],"[[:alpha:]]+$")
+    } else myStop(error5)
   }
   final_link <- paste(paste(part_link, collapse = "_"), "1920x1080.jpg", sep = "_")
   return(list(final_link, tag_name))
 }
 
 crawl.n_days_ago_safemode <- function(f, url) {
-  message(sprintf("%s days ago SAFE mode.\n", option3))
+  message(sprintf("%s days ago SAFE mode.\n", config$n_days_ago))
   time <- floor(as.numeric(Sys.time()) * 1000)
-  url_templet <- sprintf("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=%s&n=1&nc=%s&pid=hp", option3, time)
+  url_templet <- sprintf("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=%s&n=1&nc=%s&pid=hp", config$n_days_ago, time)
   json <- getURL(url_templet, curl = handle) %>% fromJSON
   part_link <- json[["images"]]$url
   final_link <- paste0(url, part_link)
@@ -148,23 +151,21 @@ run <- function(mode, url) {
   mode <- initialize(mode)
   data <- crawl(mode, url)
   raw_pic <- getBinaryURL(data[[1]], curl = handle)
-  writeBin(raw_pic, paste0("../pictures/",data[[2]],".jpg"))
-  writeBin(raw_pic, "../cache/cache.jpg")
+  writeBin(raw_pic, paste0("pictures/",data[[2]],".jpg"))
+  writeBin(raw_pic, "cache/cache.jpg")
 }
 url1 <- "https://cn.bing.com"
 url2 <- "https://bing.ioliu.cn/?p=1"
 
 {
-if(option1)
-  run("current", url1)
-else if(option2)
-  run("random", url2)
-else if(option3 < 8 && !is.na(option3))
-  run("n_days_ago_safemode", url1)
-else if(option3 >= 8 && !is.na(option3))
-  run("n_days_ago", url2)
+  if(config$current)
+    run("current", url1)
+  else if(config$random)
+    run("random", url2)
+  else if(config$n_days_ago < 8)
+    run("n_days_ago_safemode", url1)
+  else if(config$n_days_ago >= 8)
+    run("n_days_ago", url2)
 }
 
-# call python
-system("python ../bin/set.py")
-message("Done.\n")
+message("Done.")

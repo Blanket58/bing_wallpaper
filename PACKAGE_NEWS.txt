@@ -5,6 +5,22 @@ Randomly crawls down bing daily picture from a third party database website (tha
 
 Detailed usage of this app is illustrated in wiki.
 
+2021/01/10更新：
+
+V 4.0 Final
+
+1. 重写优化检查重复图片代码；
+
+2. 修改配置项文件为YAML；
+
+3. 重写检查依赖库脚本；
+
+4. 优化设置壁纸python脚本；
+
+5. 重新组织项目结构。
+
+---
+
 2019/04/29更新：
 
 V 3.0 beta

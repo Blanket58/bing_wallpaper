@@ -1,7 +1,7 @@
 # bing_wallpaper
 
-[R Version 3.5.2](https://www.r-project.org/) |
-[Python Version 3.7.2](https://www.python.org/downloads/)
+[R Version 3.6.3](https://www.r-project.org/) |
+[Python Version 3.7.9](https://www.python.org/downloads/)
 
 ### Introduction：
 
@@ -15,7 +15,7 @@ So far, there are three modes you can choose:
 
 * current: Crawls down exactly the picture on 'cn.bing.com' that day. [true/false]
 * random: Randomly crawls down one picture from the history pictures database. [true/false]
-* n_days_ago: Manually type in one positive integer N to get exactly the picture N days ago. [positive integer/null]
+* n_days_ago: Manually type in one positive integer N to get exactly the picture N days ago. [positive integer/false]
 
 Notice: only one mode is allowed to be switched on at a time.
 
